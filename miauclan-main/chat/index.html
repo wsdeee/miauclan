@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat — miau clan.</title>
+<meta name="theme-color" content="#0b0c10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0c10;--bg-surface:#15161b;--text:#f4f2ed;--text-muted:#9a9ea6;--accent:#ff3b5c;--accent-ink:#0b0c10;--border:#262830;--font-display:'Unbounded',sans-serif;--font-body:'Inter',sans-serif;--ease:cubic-bezier(.22,.61,.36,1)}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font-body)}
+.gate{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity .6s var(--ease)}
+.gate--leaving{opacity:0;pointer-events:none}
+.gate-inner{display:flex;flex-direction:column;align-items:center;gap:2.5rem;padding:1.5rem;text-align:center}
+.gate-wordmark{margin:0;font-family:var(--font-display);font-weight:800;font-size:clamp(2.2rem,7vw,4.5rem)}
+.enter-btn{font-family:var(--font-body);font-weight:600;font-size:.9rem;letter-spacing:.14em;color:var(--text);background:transparent;border:1px solid var(--text);border-radius:6px;padding:.95rem 2.75rem;cursor:pointer;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease)}
+.enter-btn:hover,.enter-btn:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.site{opacity:0;transition:opacity .7s var(--ease) .1s}
+.site--visible{opacity:1}
+.wrap{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.site-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:2rem 0}
+.wordmark-small{font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:var(--text);text-decoration:none}
+.header-right{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.text-link{font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.text-link:hover{color:var(--text)}
+.social-row{display:flex;gap:.5rem}
+.social-tag{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--border);border-radius:6px;color:var(--text-muted);text-decoration:none;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease),transform .15s var(--ease)}
+.social-tag:hover,.social-tag:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);transform:translateY(-1px)}
+.social-tag svg{width:16px;height:16px;display:block;fill:currentColor}
+.hero{padding:2.5rem 0 1.5rem}
+.accent-bar{display:block;width:56px;height:6px;margin-bottom:1.75rem;background:var(--accent)}
+.hero-headline{margin:0 0 1rem;font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1}
+.hero-sub{margin:0;color:var(--text-muted);font-size:1rem;line-height:1.5}
+.chat-form{display:flex;flex-direction:column;gap:1rem;margin:1.5rem 0 2rem}
+.chat-form textarea{width:100%;background:var(--bg-surface);border:1px solid var(--border);color:var(--text);padding:1rem;font-family:var(--font-body);font-size:.95rem;border-radius:6px;resize:vertical;outline:none}
+.chat-form textarea:focus{border-color:var(--accent)}
+.submit-btn{font-family:var(--font-body);font-weight:600;font-size:.85rem;letter-spacing:.14em;color:var(--text);background:transparent;border:1px solid var(--text);border-radius:6px;padding:.9rem 1rem;cursor:pointer;width:100%;text-align:center;transition:background .2s,color .2s,border-color .2s}
+.submit-btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.submit-btn:disabled{opacity:.4;cursor:not-allowed}
+.chat-board{display:flex;flex-direction:column;gap:1rem;margin-bottom:3rem}
+.chat-card{background:var(--bg-surface);border:1px solid var(--border);padding:1.25rem;border-radius:6px}
+.chat-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;gap:.75rem}
+.chat-user{font-family:var(--font-display);font-weight:600;font-size:.85rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chat-time{font-size:.75rem;color:var(--text-muted);flex-shrink:0}
+.chat-text{margin:0;font-size:.95rem;line-height:1.5;color:var(--text);word-break:break-word}
+.empty-chat{color:var(--text-muted);font-size:.95rem;font-style:italic;text-align:center;padding:2rem 0}
+.delete-btn{background:transparent;border:1px solid var(--border);color:var(--text-muted);font-family:var(--font-body);font-size:.7rem;font-weight:600;letter-spacing:.08em;padding:.3rem .55rem;border-radius:4px;cursor:pointer;flex-shrink:0;transition:background .2s,color .2s,border-color .2s}
+.delete-btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chat-actions{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.site-footer{padding:2rem 0 3rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<div id="gate" class="gate"><div class="gate-inner"><h1 class="gate-wordmark">miau clan.</h1><button id="enterBtn" class="enter-btn" type="button">ENTER</button></div></div>
+<div id="site" class="site"><div class="wrap">
+  <header class="site-header">
+    <a href="/" class="wordmark-small">miau clan.</a>
+    <div class="header-right">
+      <a href="/perustajat" class="text-link">Perustajat</a>
+      <a href="/chat" class="text-link" style="color: var(--text);">Chat</a>
+      <a href="/yhteystiedot" class="text-link">Yhteystiedot</a>
+      <nav class="social-row" aria-label="Sosiaalinen media">
+        <a href="https://discord.gg/rwxnvDMJyg" class="social-tag" aria-label="Discord" title="Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        </a>
+        <a href="https://x.com/miauclan" class="social-tag" aria-label="X" title="X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.twitch.tv/miauclantv" class="social-tag" aria-label="Twitch" title="Twitch">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <span class="accent-bar"></span>
+      <h1 class="hero-headline">Yhteisöchat.</h1>
+      <p class="hero-sub">Kirjoita vapaasti. Saat satunnaisen nimimerkin. Voit poistaa vain omat viestisi – chat on täysin anonyymi.</p>
+    </div>
+
+    <form id="chatForm" class="chat-form">
+      <textarea id="chatInput" placeholder="Kirjoita viestisi tähän..." maxlength="250" rows="3" required></textarea>
+      <button type="submit" class="submit-btn" id="submitBtn" disabled>Ladataan...</button>
+    </form>
+
+    <div id="chatBoard" class="chat-board">
+      <div class="empty-chat">Ladataan viestejä...</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 miau clan.</span>
+  </footer>
+</div></div>
+
+<script>
+(function(){
+  var g = document.getElementById('gate');
+  var s = document.getElementById('site');
+  var b = document.getElementById('enterBtn');
+  if (!g || !s || !b) return;
+  var entered = false;
+  try { entered = sessionStorage.getItem('miau_entered') === '1'; } catch(e) {}
+  if (entered) {
+    g.style.display = 'none';
+    document.body.classList.add('entered');
+    s.classList.add('site--visible');
+    return;
+  }
+  b.addEventListener('click', function(){
+    try { sessionStorage.setItem('miau_entered', '1'); } catch(e) {}
+    document.body.classList.add('entered');
+    g.classList.add('gate--leaving');
+    s.classList.add('site--visible');
+    setTimeout(function(){ g.style.display = 'none'; }, 650);
+  });
+})();
+</script>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const SUPABASE_URL = 'https://vhrbdsjgdizxfebgsydr.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_-In_tbVbHCe4F7OuO97MEg_9GJnQPYc';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const namePool = ["Mammutti","Kissa","Tiikeri","Haikala","Panda","Susi","Karhu","Kettu","Kotka","Ninja","Haamu","Mursu","Pöllö","Mäyrä","Siili","Hirvi","Orava","Kala","Lisko","Haukka","Poro","Masi","Roope","Pate","Make","Köpi","Bugi","Serveri","Koodari","Peluri"];
+
+function getColorForName(name) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return `hsl(${Math.abs(hash) % 360}, 85%, 65%)`;
+}
+
+const form = document.getElementById('chatForm');
+const input = document.getElementById('chatInput');
+const board = document.getElementById('chatBoard');
+const submitBtn = document.getElementById('submitBtn');
+
+let currentUserId = null;
+let myUsername = sessionStorage.getItem('miau_username');
+let myColor = sessionStorage.getItem('miau_usercolor');
+
+function formatTimeAgo(timestamp) {
+  if (!timestamp) return "Juuri äsken";
+  const s = Math.floor((Date.now() - new Date(timestamp).getTime()) / 1000);
+  if (s < 60) return "Juuri äsken";
+  const m = Math.floor(s / 60);
+  if (m < 60) return `${m} min sitten`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h} t sitten`;
+  return `${Math.floor(h / 24)} pv sitten`;
+}
+
+function createMessageCard(msg) {
+  const card = document.createElement('div');
+  card.className = 'chat-card';
+  card.dataset.id = msg.id;
+
+  const userColor = msg.color || getColorForName(msg.user_name);
+  const timeAgo = formatTimeAgo(msg.created_at);
+
+  const metaDiv = document.createElement('div');
+  metaDiv.className = 'chat-meta';
+
+  const userSpan = document.createElement('span');
+  userSpan.className = 'chat-user';
+  userSpan.style.color = userColor;
+  userSpan.textContent = msg.user_name;
+
+  const actionsDiv = document.createElement('div');
+  actionsDiv.className = 'chat-actions';
+
+  if (msg.user_id && currentUserId && msg.user_id === currentUserId) {
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'delete-btn';
+    delBtn.textContent = '✕ POISTA';
+    delBtn.addEventListener('click', async function() {
+      if (!confirm('Haluatko varmasti poistaa tämän viestin?')) return;
+      const { error } = await supabase.from('messages').delete().eq('id', msg.id);
+      if (error) alert('Poisto epäonnistui: ' + error.message);
+    });
+    actionsDiv.appendChild(delBtn);
+  }
+
+  const timeSpan = document.createElement('span');
+  timeSpan.className = 'chat-time';
+  timeSpan.textContent = timeAgo;
+  actionsDiv.appendChild(timeSpan);
+
+  metaDiv.appendChild(userSpan);
+  metaDiv.appendChild(actionsDiv);
+
+  const textP = document.createElement('p');
+  textP.className = 'chat-text';
+  textP.textContent = msg.content;
+
+  card.appendChild(metaDiv);
+  card.appendChild(textP);
+  return card;
+}
+
+function renderMessages(messages) {
+  board.innerHTML = '';
+  if (!messages || messages.length === 0) {
+    board.innerHTML = '<div class="empty-chat">Ei viestejä vielä. Kirjoita ensimmäinen viesti!</div>';
+    return;
+  }
+  messages.forEach(msg => board.appendChild(createMessageCard(msg)));
+}
+
+async function loadMessages() {
+  const { data, error } = await supabase
+    .from('messages')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(50);
+  if (error) {
+    console.error(error);
+    board.innerHTML = '<div class="empty-chat">Virhe ladattaessa viestejä.</div>';
+    return;
+  }
+  renderMessages(data);
+}
+
+function setupRealtime() {
+  supabase
+    .channel('public:messages')
+    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, (payload) => {
+      const empty = board.querySelector('.empty-chat');
+      if (empty) empty.remove();
+      if (board.querySelector(`[data-id="${payload.new.id}"]`)) return;
+      board.prepend(createMessageCard(payload.new));
+    })
+    .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'messages' }, (payload) => {
+      const el = board.querySelector(`[data-id="${payload.old.id}"]`);
+      if (el) el.remove();
+      if (board.children.length === 0) {
+        board.innerHTML = '<div class="empty-chat">Ei viestejä vielä. Kirjoita ensimmäinen viesti!</div>';
+      }
+    })
+    .subscribe();
+}
+
+async function initAuth() {
+  const { data: { session } } = await supabase.auth.getSession();
+
+  if (session && session.user) {
+    currentUserId = session.user.id;
+  } else {
+    const { data, error } = await supabase.auth.signInAnonymously();
+    if (error) {
+      console.error('Kirjautuminen epäonnistui:', error);
+      board.innerHTML = '<div class="empty-chat">Kirjautuminen epäonnistui: ' + error.message + '</div>';
+      return;
+    }
+    currentUserId = data.user.id;
+  }
+
+  if (!myUsername || !myColor) {
+    const base = namePool[Math.floor(Math.random() * namePool.length)];
+    const num = Math.floor(10 + Math.random() * 90);
+    myUsername = base + num;
+    myColor = getColorForName(myUsername);
+    sessionStorage.setItem('miau_username', myUsername);
+    sessionStorage.setItem('miau_usercolor', myColor);
+  }
+
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'LÄHETÄ VIESTI';
+
+  await loadMessages();
+  setupRealtime();
+}
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const text = input.value.trim();
+  if (!text || !currentUserId) return;
+
+  submitBtn.disabled = true;
+  const { error } = await supabase.from('messages').insert({
+    user_id: currentUserId,
+    user_name: myUsername,
+    content: text,
+    color: myColor
+  });
+  submitBtn.disabled = false;
+
+  if (error) {
+    alert('Lähetys epäonnistui: ' + error.message);
+    return;
+  }
+  input.value = '';
+});
+
+initAuth();
+</script>
+</body>
+</html>
