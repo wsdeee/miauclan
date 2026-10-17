@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470" fill="none">
+  <defs>
+    <linearGradient id="fabric" x1="124" y1="54" x2="474" y2="445" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34363d"/>
+      <stop offset=".22" stop-color="#17191f"/>
+      <stop offset=".58" stop-color="#25272e"/>
+      <stop offset="1" stop-color="#0d0e12"/>
+    </linearGradient>
+    <linearGradient id="sleeve" x1="103" y1="95" x2="265" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35373e"/>
+      <stop offset="1" stop-color="#15171c"/>
+    </linearGradient>
+    <filter id="shadow" x="45" y="18" width="510" height="470" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+  </defs>
+  <ellipse cx="300" cy="438" fill="#000" fill-opacity=".58" filter="url(#shadow)" rx="190" ry="18"/>
+  <path d="m217 62-48 15-104 91 59 88 55-31v198h242V225l55 31 59-88-104-91-48-15c-13 36-39 54-83 54s-70-18-83-54Z" fill="url(#fabric)" stroke="#555861" stroke-opacity=".55" stroke-width="2"/>
+  <path d="m169 77-103 91 47 70 68-43-12-118Z" fill="url(#sleeve)" stroke="#555861" stroke-opacity=".5" stroke-width="2"/>
+  <path d="m431 77 103 91-47 70-68-43 12-118Z" fill="#17191e" stroke="#555861" stroke-opacity=".5" stroke-width="2"/>
+  <path d="M217 62c12 37 39 54 83 54s71-17 83-54" stroke="#08090c" stroke-width="17"/>
+  <path d="M221 64c13 31 38 45 79 45s66-14 79-45" stroke="#646771" stroke-opacity=".65" stroke-width="2"/>
+  <path d="M190 228v158m220-158v158M181 407h238" stroke="#686b74" stroke-opacity=".32" stroke-width="2"/>
+  <path d="m116 226 43-27m326 27-43-27" stroke="#ff3b5c" stroke-opacity=".75" stroke-width="5"/>
+  <path d="m201 157 15 224m183-224-14 224" stroke="#fff" stroke-opacity=".035" stroke-width="3"/>
+</svg>

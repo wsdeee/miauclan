@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Merch — miau clan.</title>
-<meta name="description" content="miau clan. merch — tulossa pian.">
+<title>Kauppa — miau clan.</title>
+<meta name="description" content="Tutustu miau clan. -fanituotteisiin ja kokoa oma tilauksesi.">
 <meta name="theme-color" content="#0b0c10">
 <link rel="icon" type="image/png" href="../miauclanlogowhite.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,9 +17,19 @@
 .enter-btn{font-family:var(--font-body);font-weight:600;font-size:.9rem;letter-spacing:.14em;color:var(--text);background:transparent;border:1px solid var(--text);border-radius:6px;padding:.95rem 2.75rem;cursor:pointer;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease)}.enter-btn:hover,.enter-btn:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .site{opacity:0;transition:opacity .7s var(--ease) .1s}.site--visible{opacity:1}.wrap{max-width:720px;margin:0 auto;padding:0 1.5rem}.site-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:2rem 0}.wordmark-small{display:inline-flex;align-items:center;gap:.65rem;font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--text);text-decoration:none}.brand-logo{display:block;width:2.25rem;height:2.25rem;object-fit:contain}.header-right{display:flex;align-items:center;gap:1.35rem;flex-wrap:wrap}.text-link{position:relative;padding:.35rem 0;font-size:1rem;font-weight:600;letter-spacing:.015em;color:var(--text-muted);text-decoration:none;transition:color .2s var(--ease)}.text-link::after{position:absolute;right:0;bottom:0;left:0;height:2px;background:var(--accent);content:"";transform:scaleX(0);transform-origin:left;transition:transform .2s var(--ease)}.text-link:hover,.text-link--active{color:var(--text)}.text-link:hover::after,.text-link--active::after{transform:scaleX(1)}
 .social-row{display:flex;gap:.5rem}.social-tag{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--border);border-radius:6px;color:var(--text-muted);text-decoration:none;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease),transform .15s var(--ease)}.social-tag:hover,.social-tag:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);transform:translateY(-1px)}.social-tag svg{width:16px;height:16px;display:block;fill:currentColor}
-.merch-main{min-height:55vh;display:flex;align-items:center;justify-content:center;border-top:1px solid var(--border)}.merch-title{margin:0;font-family:var(--font-display);font-size:clamp(2rem,6vw,3.6rem);font-weight:800;text-align:center}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}.shop-main{padding:2rem 0 4rem;border-top:1px solid var(--border)}.shop-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin:1.5rem 0 2rem}.shop-kicker,.product-tag,.demo-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}.shop-title{margin:.6rem 0 .8rem;font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,4.8vw,2.8rem);line-height:1.12}.shop-copy{max-width:56ch;margin:0;color:var(--text-muted);line-height:1.65}.cart-open{display:inline-flex;align-items:center;gap:.65rem;flex:none;padding:.8rem 1rem;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font:600 .9rem var(--font-body);cursor:pointer;transition:border-color .2s var(--ease),background .2s var(--ease)}.cart-open:hover{border-color:var(--accent);background:var(--bg-surface)}.cart-count{display:grid;min-width:1.5rem;height:1.5rem;place-items:center;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:.75rem}.demo-notice{display:flex;align-items:flex-start;gap:.8rem;margin:2rem 0;padding:1rem 1.15rem;border:1px solid rgba(255,59,92,.35);border-radius:8px;background:rgba(255,59,92,.06);color:var(--text-muted);font-size:.85rem;line-height:1.55}.demo-notice strong{color:var(--text)}.notice-mark{display:grid;flex:none;width:1.4rem;height:1.4rem;place-items:center;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:800}.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.product-card{overflow:hidden;border:1px solid var(--border);border-radius:10px;background:#101116;transition:border-color .2s var(--ease),transform .2s var(--ease)}.product-card:hover{transform:translateY(-3px);border-color:#484b55}.product-art{position:relative;display:grid;min-height:230px;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 35%,#24232a 0,#17171d 48%,#111116 100%)}.product-art::before,.product-art::after{position:absolute;content:"";width:12rem;height:12rem;border:1px solid rgba(255,255,255,.035);border-radius:50%}.product-art::after{width:17rem;height:17rem}.product-art svg{position:relative;z-index:1;width:min(78%,250px);height:200px;filter:drop-shadow(0 16px 18px rgba(0,0,0,.3));transition:transform .3s var(--ease)}.product-card:hover .product-art svg{transform:translateY(-4px) scale(1.025)}.art-logo{opacity:.95}.product-tag{position:absolute;top:1rem;left:1rem;z-index:2;padding:.4rem .55rem;border:1px solid rgba(255,59,92,.35);border-radius:4px;background:rgba(11,12,16,.8);font-size:.62rem}.product-info{padding:1.1rem}.product-topline{display:grid;gap:.55rem;margin-bottom:1rem}.product-name{display:flex;align-items:center;min-height:2.5em;margin:0;font-family:var(--font-display);font-size:1rem;font-weight:600;line-height:1.3}.product-price{width:max-content;padding:.3rem .55rem;border:1px solid rgba(255,59,92,.3);border-radius:4px;background:rgba(255,59,92,.08);color:var(--text);font-size:.88rem;font-weight:700}.product-actions{display:flex;width:100%;gap:.6rem}.product-actions .size-select{flex:none}.product-actions .add-button{min-width:0}.size-select{min-width:0;padding:.7rem .65rem;border:1px solid var(--border);border-radius:5px;background:var(--bg);color:var(--text);font:500 .85rem var(--font-body)}.add-button,.checkout-button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:42px;padding:.7rem 1rem;border:1px solid var(--accent);border-radius:5px;background:var(--accent);color:var(--accent-ink);font:700 .82rem var(--font-body);cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}.add-button{flex:1}.add-button:hover,.checkout-button:hover{background:transparent;color:var(--accent)}.shop-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:2.5rem;border:1px solid var(--border);background:var(--border)}.benefit{padding:1.1rem;background:var(--bg);color:var(--text-muted);font-size:.8rem;line-height:1.5}.benefit strong{display:block;margin-bottom:.25rem;color:var(--text)}.shop-dialog{width:min(100% - 2rem,520px);max-height:min(88vh,760px);padding:0;border:1px solid #373943;border-radius:12px;background:var(--bg);color:var(--text);box-shadow:0 24px 100px #000b}.shop-dialog::backdrop{background:rgba(0,0,0,.76);backdrop-filter:blur(4px)}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.2rem 1.35rem;border-bottom:1px solid var(--border)}.dialog-head h2{margin:0;font-family:var(--font-display);font-size:1.1rem}.dialog-close{display:grid;width:2.2rem;height:2.2rem;place-items:center;border:1px solid var(--border);border-radius:5px;background:transparent;color:var(--text);font-size:1.2rem;cursor:pointer}.dialog-content{padding:1.35rem}.cart-empty{padding:1rem 0;color:var(--text-muted);line-height:1.6}.cart-lines{display:grid;gap:.75rem;max-height:42vh;overflow:auto}.cart-line{display:grid;grid-template-columns:1fr auto;gap:.5rem;padding:.8rem 0;border-bottom:1px solid var(--border)}.cart-line-name{font-weight:600}.cart-line-meta{margin-top:.25rem;color:var(--text-muted);font-size:.8rem}.cart-line-controls{display:flex;align-items:center;gap:.45rem}.quantity-button{width:1.8rem;height:1.8rem;border:1px solid var(--border);border-radius:4px;background:transparent;color:var(--text);font-size:1rem;cursor:pointer}.quantity-button:hover{border-color:var(--accent)}.cart-remove{grid-column:1/-1;justify-self:start;padding:0;border:0;background:none;color:var(--text-muted);font:500 .78rem var(--font-body);text-decoration:underline;cursor:pointer}.cart-remove:hover{color:var(--accent)}.cart-totals{display:grid;gap:.55rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)}.total-row{display:flex;justify-content:space-between;gap:1rem;color:var(--text-muted);font-size:.88rem}.total-row--grand{padding-top:.55rem;border-top:1px solid var(--border);color:var(--text);font-size:1rem;font-weight:700}.shipping-note,.checkout-note{margin:.85rem 0 1rem;color:var(--text-muted);font-size:.78rem;line-height:1.5}.cart-checkout{width:100%;margin-top:.5rem}.checkout-form{display:grid;gap:.9rem}.checkout-form p{margin:0 0 .2rem;color:var(--text-muted);font-size:.84rem;line-height:1.55}.form-field{display:grid;gap:.35rem}.form-field label{font-size:.82rem;font-weight:600}.form-field input{width:100%;padding:.75rem .8rem;border:1px solid var(--border);border-radius:5px;background:#101116;color:var(--text);font:400 .9rem var(--font-body)}.form-field input:focus{border-color:var(--accent);outline:2px solid rgba(255,59,92,.2)}.checkout-summary{padding:.8rem;border:1px solid var(--border);border-radius:6px;color:var(--text-muted);font-size:.82rem;line-height:1.6}.checkout-summary strong{color:var(--text)}.checkout-submit{width:100%}.order-success{text-align:center}.success-icon{display:grid;width:3rem;height:3rem;margin:0 auto 1rem;place-items:center;border-radius:50%;background:rgba(90,190,130,.15);color:#70d69b;font-size:1.5rem}.order-success h3{margin:0 0 .6rem;font-family:var(--font-display)}.order-success p{color:var(--text-muted);font-size:.9rem;line-height:1.6}.order-success .checkout-button{margin-top:.75rem}
 .site-footer{padding:2rem 0 3rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}.footer-brand{display:flex;align-items:center;gap:.65rem}.footer-logo{display:block;width:1.8rem;height:1.8rem;object-fit:contain}.site-footer .social-row{gap:.5rem}
-@media(max-width:640px){.header-right{width:100%;justify-content:space-between;column-gap:1rem;row-gap:.5rem}}
+@media(max-width:640px){.header-right{width:100%;justify-content:space-between;column-gap:1rem;row-gap:.5rem}.shop-intro{align-items:flex-start;flex-direction:column;gap:1.2rem}.product-grid{grid-template-columns:1fr}.product-art{min-height:210px}.shop-benefits{grid-template-columns:1fr}.benefit{padding:.85rem 1rem}}
+.product-art{display:block;aspect-ratio:1.28;min-height:0;background:#18191e}
+.product-art::before,.product-art::after{display:none}
+.product-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.product-logo{position:absolute;z-index:1;top:48%;left:50%;width:16%;height:16%;object-fit:contain;filter:drop-shadow(0 2px 2px rgba(0,0,0,.42));transform:translate(-50%,-50%);pointer-events:none}
+.product-logo--dark{filter:brightness(0) drop-shadow(0 1px 1px rgba(0,0,0,.15))}
+.product-art--jersey .product-logo{top:36%;width:14%;height:14%}
+.photo-coming{position:absolute;z-index:2;right:.7rem;bottom:.7rem;left:.7rem;width:max-content;max-width:calc(100% - 1.4rem);margin:auto;padding:.45rem .65rem;border:1px solid rgba(255,255,255,.14);border-radius:5px;background:rgba(11,12,16,.86);color:var(--text);font-size:.65rem;font-weight:600;letter-spacing:.04em;text-align:center;backdrop-filter:blur(5px)}
+.photo-credit{margin:1rem 0 0;color:var(--text-muted);font-size:.75rem;line-height:1.5}
+.photo-credit a{color:var(--text-muted);text-underline-offset:2px}
+.photo-credit a:hover{color:var(--text)}
 </style>
 </head>
 <body>
@@ -29,12 +39,75 @@
     <a href="/" class="wordmark-small"><img class="brand-logo" src="../miauclanlogowhite.png" alt="">miau clan.</a>
     <div class="header-right">
       <a href="/perustajat" class="text-link">Perustajat</a>
-      <a href="/merch" class="text-link text-link--active" aria-current="page">Merch</a>
+      <a href="/merch" class="text-link text-link--active" aria-current="page">Kauppa</a>
       <a href="/chat" class="text-link">Chat</a>
       <a href="/yhteystiedot" class="text-link">Yhteystiedot</a>
     </div>
   </header>
-  <main class="merch-main"><h1 class="merch-title">Coming soon</h1></main>
+  <main class="shop-main">
+    <div class="shop-intro">
+      <div>
+        <span class="shop-kicker">Miau clan. kauppa</span>
+        <h1 class="shop-title">Kanna värit. Kanna klaania.</h1>
+        <p class="shop-copy">Tutustu miau clan. -fanituotteiden mallistoon ja valitse suosikkisi.</p>
+      </div>
+      <button class="cart-open" id="openCart" type="button" aria-haspopup="dialog" aria-controls="cartDialog">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 9H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        Ostoskori <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+      </button>
+    </div>
+    <div class="product-grid" aria-label="Fanituotteet">
+      <article class="product-card" data-product="tee">
+        <div class="product-art product-art--tee">
+          <img class="product-photo" src="photos/tee-black.svg" alt="Yksittäinen musta miau clan. -logolla varustettu T-paita edestä" loading="lazy">
+          <img class="product-logo" src="../miauclanlogowhite.png" alt="">
+          <span class="photo-coming">Logo T-paidan kuvat tulossa pian</span>
+        </div>
+        <div class="product-info"><div class="product-topline"><h2 class="product-name">Logo T-paita</h2><span class="product-price">24,90 €</span></div><div class="product-actions"><label class="visually-hidden" for="size-tee">Valitse koko, Logo T-paita</label><select class="size-select" id="size-tee" aria-label="Koko: Logo T-paita"><option value="S">S</option><option value="M" selected>M</option><option value="L">L</option><option value="XL">XL</option><option value="XXL">XXL</option></select><button class="add-button" type="button" data-add="tee">Lisää koriin</button></div></div>
+      </article>
+      <article class="product-card" data-product="hoodie">
+        <div class="product-art product-art--hoodie">
+          <img class="product-photo" src="photos/hoodie.svg" alt="Yksittäinen harmaa miau clan. -logolla varustettu huppari edestä" loading="lazy">
+          <img class="product-logo" src="../miauclanlogowhite.png" alt="">
+          <span class="photo-coming">Hupparin tuotekuvat tulossa pian</span>
+        </div>
+        <div class="product-info"><div class="product-topline"><h2 class="product-name">Logo-huppari</h2><span class="product-price">54,90 €</span></div><div class="product-actions"><label class="visually-hidden" for="size-hoodie">Valitse koko, Logo-huppari</label><select class="size-select" id="size-hoodie" aria-label="Koko: Logo-huppari"><option value="S">S</option><option value="M" selected>M</option><option value="L">L</option><option value="XL">XL</option><option value="XXL">XXL</option></select><button class="add-button" type="button" data-add="hoodie">Lisää koriin</button></div></div>
+      </article>
+      <article class="product-card" data-product="tee-white">
+        <div class="product-art product-art--white-tee">
+          <img class="product-photo" src="photos/tee-white.svg" alt="Yksittäinen valkoinen miau clan. -logolla varustettu T-paita edestä" loading="lazy">
+          <img class="product-logo product-logo--dark" src="../miauclanlogowhite.png" alt="">
+          <span class="photo-coming">Vaalean T-paidan kuvat tulossa pian</span>
+        </div>
+        <div class="product-info"><div class="product-topline"><h2 class="product-name">Logo T-paita — vaalea</h2><span class="product-price">24,90 €</span></div><div class="product-actions"><label class="visually-hidden" for="size-tee-white">Valitse koko, vaalea Logo T-paita</label><select class="size-select" id="size-tee-white" aria-label="Koko: vaalea Logo T-paita"><option value="S">S</option><option value="M" selected>M</option><option value="L">L</option><option value="XL">XL</option><option value="XXL">XXL</option></select><button class="add-button" type="button" data-add="tee-white">Lisää koriin</button></div></div>
+      </article>
+      <article class="product-card" data-product="jersey">
+        <div class="product-art product-art--jersey">
+          <img class="product-photo" src="photos/jersey.svg" alt="Musta ja punainen miau clan. -pelipaita logolla, joukkuenimellä ja pelinumerolla 06" loading="lazy">
+          <img class="product-logo" src="../miauclanlogowhite.png" alt="">
+          <span class="photo-coming">Pelipaidan kuvat tulossa pian</span>
+        </div>
+        <div class="product-info"><div class="product-topline"><h2 class="product-name">Miau clan. pelipaita</h2><span class="product-price">44,90 €</span></div><div class="product-actions"><label class="visually-hidden" for="size-jersey">Valitse koko, Miau clan. pelipaita</label><select class="size-select" id="size-jersey" aria-label="Koko: Miau clan. pelipaita"><option value="S">S</option><option value="M" selected>M</option><option value="L">L</option><option value="XL">XL</option><option value="XXL">XXL</option></select><button class="add-button" type="button" data-add="jersey">Lisää koriin</button></div></div>
+      </article>
+    </div>
+  </main>
+  <dialog class="shop-dialog" id="cartDialog" aria-labelledby="cartTitle">
+    <div class="dialog-head"><h2 id="cartTitle">Ostoskori</h2><button class="dialog-close" type="button" data-close="cartDialog" aria-label="Sulje ostoskori">×</button></div>
+    <div class="dialog-content" id="cartContent"></div>
+  </dialog>
+  <dialog class="shop-dialog" id="checkoutDialog" aria-labelledby="checkoutTitle">
+    <div class="dialog-head"><h2 id="checkoutTitle">Kassa</h2><button class="dialog-close" type="button" data-close="checkoutDialog" aria-label="Sulje kassa">×</button></div>
+    <div class="dialog-content">
+      <form class="checkout-form" id="checkoutForm">
+        <div class="checkout-summary" id="checkoutSummary"></div>
+        <div class="form-field"><label for="orderName">Nimi</label><input id="orderName" name="name" autocomplete="off" placeholder="Miau Mallikas" required></div>
+        <div class="form-field"><label for="orderEmail">Sähköposti</label><input id="orderEmail" name="email" type="email" autocomplete="off" placeholder="miau@example.com" required></div>
+        <div class="form-field"><label for="orderAddress">Toimitusosoite</label><input id="orderAddress" name="address" autocomplete="off" placeholder="Esimerkkikatu 1, 00100 Helsinki" required></div>
+        <button class="checkout-button checkout-submit" type="submit">Vahvista tilaus</button>
+      </form>
+      <div class="order-success" id="orderSuccess" hidden aria-live="polite"></div>
+    </div>
+  </dialog>
   <footer class="site-footer">
     <div class="footer-brand"><img class="footer-logo" src="../miauclanlogowhite.png" alt=""><span>© 2026 miau clan.</span></div>
     <nav class="social-row" aria-label="Sosiaalinen media">
@@ -45,6 +118,96 @@
       </nav>
   </footer>
 </div></div>
+<script>
+(function(){
+  var products={
+    tee:{name:'Logo T-paita',price:24.90,sizeId:'size-tee'},
+    hoodie:{name:'Logo-huppari',price:54.90,sizeId:'size-hoodie'},
+    'tee-white':{name:'Logo T-paita — vaalea',price:24.90,sizeId:'size-tee-white'},
+    jersey:{name:'Miau clan. pelipaita',price:44.90,sizeId:'size-jersey'}
+  };
+  var cart=[];
+  var count=document.getElementById('cartCount');
+  var cartDialog=document.getElementById('cartDialog');
+  var checkoutDialog=document.getElementById('checkoutDialog');
+  var cartContent=document.getElementById('cartContent');
+  var checkoutForm=document.getElementById('checkoutForm');
+  var checkoutSummary=document.getElementById('checkoutSummary');
+  var orderSuccess=document.getElementById('orderSuccess');
+  var formatter=new Intl.NumberFormat('fi-FI',{style:'currency',currency:'EUR'});
+  function totals(){
+    var subtotal=cart.reduce(function(sum,item){return sum+products[item.id].price*item.quantity;},0);
+    var shipping=subtotal===0||subtotal>=75?0:4.90;
+    return {subtotal:subtotal,shipping:shipping,total:subtotal+shipping};
+  }
+  function renderCart(){
+    var itemCount=cart.reduce(function(sum,item){return sum+item.quantity;},0);
+    count.textContent=String(itemCount);
+    if(!cart.length){
+      cartContent.innerHTML='<p class="cart-empty">Kori on vielä tyhjä. Valitse mallistosta tuote ja lisää se koriin.</p>';
+      return;
+    }
+    var rows=cart.map(function(item,index){
+      var product=products[item.id];
+      return '<div class="cart-line"><div><div class="cart-line-name">'+product.name+'</div><div class="cart-line-meta">Koko '+item.size+' · '+formatter.format(product.price)+' / kpl</div></div><div class="cart-line-controls"><button class="quantity-button" type="button" data-cart-action="decrease" data-index="'+index+'" aria-label="Vähennä tuotetta">−</button><span aria-label="Määrä">'+item.quantity+'</span><button class="quantity-button" type="button" data-cart-action="increase" data-index="'+index+'" aria-label="Lisää tuotetta">+</button></div><button class="cart-remove" type="button" data-cart-action="remove" data-index="'+index+'">Poista</button></div>';
+    }).join('');
+    var sum=totals();
+    cartContent.innerHTML='<div class="cart-lines">'+rows+'</div><div class="cart-totals"><div class="total-row"><span>Välisummaa</span><span>'+formatter.format(sum.subtotal)+'</span></div><div class="total-row"><span>Toimitus</span><span>'+(sum.shipping?formatter.format(sum.shipping):'Maksuton')+'</span></div><div class="total-row total-row--grand"><span>Yhteensä</span><span>'+formatter.format(sum.total)+'</span></div></div><button class="checkout-button cart-checkout" id="goToCheckout" type="button">Siirry kassalle</button>';
+    document.getElementById('goToCheckout').addEventListener('click',openCheckout);
+  }
+  function openCheckout(){
+    if(!cart.length)return;
+    var sum=totals();
+    checkoutSummary.innerHTML='<strong>'+cart.reduce(function(n,item){return n+item.quantity;},0)+' tuotetta</strong> · Välisummaa '+formatter.format(sum.subtotal)+' · toimitus '+(sum.shipping?formatter.format(sum.shipping):'maksuton')+'<br><strong>Yhteensä '+formatter.format(sum.total)+'</strong>';
+    cartDialog.close();
+    checkoutDialog.showModal();
+  }
+  document.querySelectorAll('[data-add]').forEach(function(button){
+    button.addEventListener('click',function(){
+      var id=button.getAttribute('data-add');
+      var size=document.getElementById(products[id].sizeId).value;
+      var item=cart.find(function(line){return line.id===id&&line.size===size;});
+      if(item)item.quantity++;
+      else cart.push({id:id,size:size,quantity:1});
+      renderCart();
+      button.textContent='Lisätty koriin';
+      window.setTimeout(function(){button.textContent='Lisää koriin';},1100);
+    });
+  });
+  document.getElementById('openCart').addEventListener('click',function(){renderCart();cartDialog.showModal();});
+  cartContent.addEventListener('click',function(event){
+    var button=event.target.closest('[data-cart-action]');
+    if(!button)return;
+    var item=cart[Number(button.getAttribute('data-index'))];
+    if(!item)return;
+    var action=button.getAttribute('data-cart-action');
+    if(action==='increase')item.quantity++;
+    if(action==='decrease')item.quantity--;
+    if(action==='remove'||item.quantity<1)cart.splice(Number(button.getAttribute('data-index')),1);
+    renderCart();
+  });
+  document.querySelectorAll('[data-close]').forEach(function(button){
+    button.addEventListener('click',function(){document.getElementById(button.getAttribute('data-close')).close();});
+  });
+  checkoutForm.addEventListener('submit',function(event){
+    event.preventDefault();
+    if(!checkoutForm.reportValidity())return;
+    var orderNumber=String(Date.now()).slice(-6);
+    checkoutForm.hidden=true;
+    orderSuccess.hidden=false;
+    orderSuccess.innerHTML='<span class="success-icon" aria-hidden="true">✓</span><h3>Kiitos tilauksesta!</h3><p>Tilausnumero MC-'+orderNumber+'</p><button class="checkout-button" id="continueShopping" type="button">Jatka ostoksia</button>';
+    cart=[];
+    renderCart();
+    document.getElementById('continueShopping').addEventListener('click',function(){
+      checkoutDialog.close();
+      checkoutForm.reset();
+      checkoutForm.hidden=false;
+      orderSuccess.hidden=true;
+    });
+  });
+  renderCart();
+})();
+</script>
 <script>(function(){var g=document.getElementById('gate'),s=document.getElementById('site'),b=document.getElementById('enterBtn');if(!g||!s||!b)return;var e=false;try{e=sessionStorage.getItem('miau_entered')==='1'}catch(x){}if(e){g.style.display='none';document.body.classList.add('entered');s.classList.add('site--visible');return}b.addEventListener('click',function(){try{sessionStorage.setItem('miau_entered','1')}catch(x){}g.classList.add('gate--leaving');s.classList.add('site--visible');setTimeout(function(){g.style.display='none'},650)});})();</script>
 </body>
 </html>
